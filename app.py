@@ -18,5 +18,10 @@ def calculate_factorial(numb):
            factorial = factorial*i    
        return f'The factorial of {num} is {factorial}'
 
+@app.route('/feature')
+def hello_feature():
+    return 'Hello, new feature!'
+
+
 if __name__ == "__main__":
     app.run()
