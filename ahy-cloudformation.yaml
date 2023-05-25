@@ -1,13 +1,32 @@
----
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Testing AWS Cloudformation with EC2 instance creation"
+Parameters:
+  KeyName:
+    Description: "Key name"
+    Type: String
+    Default: adrian-key
+  InstanceType:
+    Description: EC2 instance type
+    Type: String
+    Default: t2.micro
+  AMIID:
+    Description: "AMI"
+    Type: String
+    Default: ami-0dcbfb3e1e69031db
+  SecG:
+    Description: "Security Group"
+    Type: String
+    Default: adrian-sg
+    
 Resources:
   AHYEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
-      ImageId: ami-0dcbfb3e1e69031db
-      KeyName: adrian-key
+      ImageId: !Ref 'AMIID' 
+      KeyName: !Ref 'KeyName'
       SecurityGroupIds:
-        - adrian-sg
+        - !Ref 'SecG'
       Tags:
         - Key: Name
           Value: ahy-instance-cloudformation
