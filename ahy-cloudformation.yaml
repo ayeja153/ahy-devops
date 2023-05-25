@@ -1,0 +1,13 @@
+---
+Resources:
+  AHYEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-0dcbfb3e1e69031db
+      KeyName: adrian-key
+      SecurityGroupIds:
+        - adrian-sg
+      Tags:
+        - Key: Name
+          Value: ahy-instance-cloudformation
