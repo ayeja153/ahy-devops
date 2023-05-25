@@ -22,7 +22,7 @@ Resources:
   AHYEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.micro
+      InstanceType: !Ref 'InstanceType'
       ImageId: !Ref 'AMIID' 
       KeyName: !Ref 'KeyName'
       SecurityGroupIds:
